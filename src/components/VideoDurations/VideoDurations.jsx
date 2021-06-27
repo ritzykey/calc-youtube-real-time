@@ -1,5 +1,5 @@
-import './videoDurations.css';
-import { calcCurrentRealTime } from './../../function/calcTimes';
+import { calcCurrentTime } from './../../function/calcTimes';
+import './videoDuration.css'
 
 const VideoDurations = ({ setState, state }) => {
   const videoDurationClick = (durationTime) => {
@@ -7,48 +7,58 @@ const VideoDurations = ({ setState, state }) => {
       ...state,
       durationTime: durationTime,
       durationRealTime: durationTime / state.speed,
-      currentRealTime:
-        state.rangeValue * (durationTime * calcCurrentRealTime(state.speed)),
-      currentTime: state.rangeValue * (durationTime / 100),
+      savedTime: durationTime - (durationTime / state.speed),
+      currentRealTime: calcCurrentTime(
+        state.rangeValue,
+        durationTime,
+        state.speed
+      ),
+      currentTime: calcCurrentTime(state.rangeValue, durationTime),
     });
   };
 
   const handleDurationInput = (e) => {
-    const value = Math.abs(e.target.value);
+    const durationTime = Math.abs(e.target.value);
     setState({
       ...state,
-      durationTime: value,
-      durationRealTime: value / state.speed,
-      currentRealTime:
-        state.rangeValue * (value * calcCurrentRealTime(state.speed)),
-      currentTime: state.rangeValue * (value / 100),
+      durationTime: durationTime,
+      durationRealTime: durationTime / state.speed,
+      savedTime: durationTime - (durationTime / state.speed),
+      currentRealTime: calcCurrentTime(
+        state.rangeValue,
+        durationTime,
+        state.speed
+      ),
+      currentTime: calcCurrentTime(state.rangeValue, durationTime),
     });
   };
 
   return (
-    <div>
-      <div className='videoDurationHeader'>Video Durations</div>
-      <div className='videoDurations'>
+    <div className='col'>
+      <div className='h3 mt-2 text-center'>Video Durations</div>
+      <div className='container row gap-3'>
         <button
-          className={state.durationTime === 10 && 'active'}
+          className='btn btn-dark btn-youtube  col'
           onClick={() => videoDurationClick(10)}
         >
           10
         </button>
         <button
-          className={state.durationTime === 20 && 'active'}
+          className='btn btn-dark btn-youtube col'
           onClick={() => videoDurationClick(20)}
         >
           20
         </button>
         <button
-          className={state.durationTime === 30 && 'active'}
+          className='btn btn-dark btn-youtube col'
           onClick={() => videoDurationClick(30)}
         >
           30
         </button>
         <input
           type='number'
+          className='col form-control  btn-dark btn-youtube border border-primary'
+          id='durationInput'
           min='0'
           onChange={handleDurationInput}
           value={state.durationTime}

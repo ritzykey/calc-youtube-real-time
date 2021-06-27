@@ -1,5 +1,5 @@
 import './playbackSpeed.css';
-import { calcCurrentRealTime } from './../../function/calcTimes';
+import { calcCurrentTime } from './../../function/calcTimes';
 
 const PlaybackSpeed = ({ setState, state }) => {
   const videoPlaybackSpeedClick = (speed) => {
@@ -7,19 +7,18 @@ const PlaybackSpeed = ({ setState, state }) => {
       ...state,
       speed: speed,
       durationRealTime: state.durationTime / speed,
-      currentRealTime:
-        state.rangeValue * (state.durationTime * calcCurrentRealTime(speed)),
-      currentTime: state.rangeValue * (state.durationTime / 100),
+      savedTime: state.durationTime - state.durationTime / speed,
+      currentRealTime: calcCurrentTime(state.rangeValue, state.durationTime, speed)
     });
   };
 
   return (
-    <div>
-      <div className='playbackSpeedHeader'>Playback Speed</div>
-      <div className='playbackSpeedButtonsGroup'>
-        <button className={state.speed === 1.5 && 'active'} onClick={() => videoPlaybackSpeedClick(1.5)}>x1.5</button>
-        <button className={state.speed === 2 && 'active'} onClick={() => videoPlaybackSpeedClick(2)}>x2</button>
-        <button className={state.speed === 3 && 'active'} onClick={() => videoPlaybackSpeedClick(3)}>x3</button>
+    <div className= 'col' >
+      <div className='h3 mt-2 text-center'>Playback Speed</div>
+      <div className='container row gap-3'>
+        <button className='btn btn-dark btn-youtube col' onClick={() => videoPlaybackSpeedClick(1.5)}>x1.5</button>
+        <button className='btn btn-dark btn-youtube col' onClick={() => videoPlaybackSpeedClick(2)}>x2</button>
+        <button className='btn btn-dark btn-youtube col' onClick={() => videoPlaybackSpeedClick(3)}>x3</button>
       </div>
     </div>
   );

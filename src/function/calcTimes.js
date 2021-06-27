@@ -1,9 +1,4 @@
-
-export const calcCurrentTime = (speed) => {
-    return (speed / (100))
-}
-
-export const calcCurrentRealTime = (speed) => {
-    return (1 / (100 * speed))
-}
-
+export const calcCurrentTime = (rangeValue, durationTime, speed = 1) => {
+  const currentTime = rangeValue * (durationTime / 100);
+  return currentTime / speed;
+};
