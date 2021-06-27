@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Save Your Time
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project calculates the actual time of the time-lapse videos.
+
+[https://save-your-time-8cd68.web.app/](https://save-your-time-8cd68.web.app/)
 
 ## Available Scripts
 
