@@ -18,7 +18,7 @@ const ShareTwitter = ({ savedTime }) => {
             <div className='d-flex justify-content-end '>
               <a
                 className='btn bg-light text-primary btn-lg '
-                href={`https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A3000%2F&text=I%20saved%20${savedTime.toFixed(2)}%20time.`}
+                href={`https://twitter.com/intent/tweet?url=https%3A%2F%2Fsave-your-time-8cd68.web.app%2F&text=I%20saved%20${savedTime.toFixed(2)}%20time.`}
                 target='_blank'
                 rel="noreferrer"
               >
