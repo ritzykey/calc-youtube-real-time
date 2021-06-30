@@ -7,7 +7,7 @@ export const StateContext = React.createContext(null);
 const ContextProvider = ({ children }) => {
   const initialState = {
     speed: 2,
-    rangeValue: 100.0,
+    rangeValue: 1000.0,
     durationTime: 10 * minutes,
     durationRealTime: 5 * minutes,
     currentTime: 10 * minutes,

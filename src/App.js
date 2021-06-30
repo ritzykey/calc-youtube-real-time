@@ -1,11 +1,12 @@
+import Header from './components/Header';
+import Main from './components/Main/Main';
+
 //context
 import ContextProvider from './contexts/StateContext';
 
 //styles
-import '../node_modules/bootstrap/scss/bootstrap.scss';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.scss';
-import Header from './components/Header';
-import Main from './components/Main/Main';
 
 function App() {
   return (
