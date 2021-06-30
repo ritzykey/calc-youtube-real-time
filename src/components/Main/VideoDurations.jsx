@@ -1,13 +1,17 @@
-import { calcCurrentTime } from './../../function/calcTimes';
-import './videoDuration.css'
+import { useContext } from 'react';
+import { calcCurrentTime, getMinutes } from '../../function/calcTimes';
+import { StateContext } from '../../contexts/StateContext';
+import { minutes } from './../../function/calcTimes';
 
-const VideoDurations = ({ setState, state }) => {
+const VideoDurations = () => {
+  const { state, setState } = useContext(StateContext);
+
   const videoDurationClick = (durationTime) => {
     setState({
       ...state,
       durationTime: durationTime,
       durationRealTime: durationTime / state.speed,
-      savedTime: durationTime - (durationTime / state.speed),
+      savedTime: durationTime - durationTime / state.speed,
       currentRealTime: calcCurrentTime(
         state.rangeValue,
         durationTime,
@@ -18,7 +22,7 @@ const VideoDurations = ({ setState, state }) => {
   };
 
   const handleDurationInput = (e) => {
-    const durationTime = Math.abs(e.target.value);
+    const durationTime = Math.abs(e.target.value * minutes);
     setState({
       ...state,
       durationTime: durationTime,
@@ -39,19 +43,19 @@ const VideoDurations = ({ setState, state }) => {
       <div className='container row gap-3'>
         <button
           className='btn btn-dark btn-youtube  col'
-          onClick={() => videoDurationClick(10)}
+          onClick={() => videoDurationClick(10 * minutes)}
         >
           10
         </button>
         <button
           className='btn btn-dark btn-youtube col'
-          onClick={() => videoDurationClick(20)}
+          onClick={() => videoDurationClick(20 * minutes)}
         >
           20
         </button>
         <button
           className='btn btn-dark btn-youtube col'
-          onClick={() => videoDurationClick(30)}
+          onClick={() => videoDurationClick(30 * minutes)}
         >
           30
         </button>
@@ -61,8 +65,8 @@ const VideoDurations = ({ setState, state }) => {
           id='durationInput'
           min='0'
           onChange={handleDurationInput}
-          value={state.durationTime}
-          placeHolder='duration time'
+          value={getMinutes(state.durationTime)}
+          placeholder='duration time'
         />
       </div>
     </div>

@@ -1,7 +1,13 @@
-import './playbackSpeed.css';
-import { calcCurrentTime } from './../../function/calcTimes';
+import { calcCurrentTime } from '../../function/calcTimes';
+import { useContext } from 'react';
+import { StateContext } from '../../contexts/StateContext';
 
-const PlaybackSpeed = ({ setState, state }) => {
+const PlaybackSpeed = () => {
+
+
+  const {state, setState} = useContext(StateContext)
+
+
   const videoPlaybackSpeedClick = (speed) => {
     setState({
       ...state,
