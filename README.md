@@ -3,6 +3,7 @@
 This project calculates the actual time of the time-lapse videos.
 
 [https://save-your-time-8cd68.web.app/](https://save-your-time-8cd68.web.app/)
+[https://save-your-time.netlify.app/](https://save-your-time.netlify.app/)
 
 ## Available Scripts
 
