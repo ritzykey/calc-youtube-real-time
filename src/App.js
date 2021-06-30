@@ -6,7 +6,7 @@ import ContextProvider from './contexts/StateContext';
 
 //styles
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './styles/index.scss';
+import './styles/index.css';
 
 function App() {
   return (
