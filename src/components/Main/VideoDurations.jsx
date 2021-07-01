@@ -38,7 +38,7 @@ const VideoDurations = () => {
   };
 
   return (
-    <div className='col'>
+    <div className='col-12 col-md-7 col-lg-5'>
       <div className='h3 mt-2 text-center'>Video Durations</div>
       <div className='container row gap-3'>
         <button

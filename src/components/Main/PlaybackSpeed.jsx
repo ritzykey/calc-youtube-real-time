@@ -19,7 +19,7 @@ const PlaybackSpeed = () => {
   };
 
   return (
-    <div className= 'col' >
+    <div className= 'col-12 col-md-7 col-lg-5' >
       <div className='h3 mt-2 text-center'>Playback Speed</div>
       <div className='container row gap-3'>
         <button className='btn btn-dark btn-youtube col' onClick={() => videoPlaybackSpeedClick(1.5)}>x1.5</button>

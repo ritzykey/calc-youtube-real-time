@@ -19,23 +19,11 @@ const Player = () => {
     });
   };
 
-  const handleRangeRealTimeInput = (e) => {
-    setState({
-      ...state,
-      rangeValue: Number(e.target.value),
-      currentRealTime: calcCurrentTime(
-        e.target.value,
-        state.durationTime,
-        state.speed
-      ),
-      currentTime: calcCurrentTime(e.target.value, state.durationTime),
-    });
-  };
-
   return (
     <>
       <VideoPlayer
         name='inputName'
+        headerText='No Time-lapse'
         rangeValue={state.rangeValue}
         currentTime={state.currentTime}
         durationTime={state.durationTime}
@@ -43,10 +31,11 @@ const Player = () => {
       />
       <VideoPlayer
         name='inputNameRealTime'
+        headerText='Time-lapse'
         rangeValue={state.rangeValue}
         currentTime={state.currentRealTime}
         durationTime={state.durationRealTime}
-        handleRangeInput={handleRangeRealTimeInput}
+        handleRangeInput={handleRangeInput}
       />
     </>
   );

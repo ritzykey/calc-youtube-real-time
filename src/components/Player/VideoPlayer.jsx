@@ -4,14 +4,17 @@ import PlaySvg from '../../assets/svg/playSvg.jsx';
 import { getMinutes, getSecond } from '../../function/calcTimes';
 
 const VideoPlayer = ({
-  handleRangeInput,
-  rangeValue,
-  currentTime,
-  durationTime,
   name,
+  rangeValue,
+  durationTime,
+  currentTime,
+  handleRangeInput,
+  headerText
 }) => {
   return (
-    <div className='col-lg-5'>
+    <div className='col-12 col-md-7 col-lg-5'>
+      <div className="display-6 mb-3 text-center">{headerText}</div>
+      
       <div className='card bg-dark text-white'>
         <img
           className='icard-img '
@@ -32,10 +35,10 @@ const VideoPlayer = ({
               />
             </div>
             <div className='p-1 pt-0 fs-4 '>
-              <PlaySvg className='fs-2  ' />
+              <PlaySvg className='fs-2 align-text-bottom ' />
               <span className='time'>
-                {`${getMinutes(currentTime)}:${getSecond(currentTime)}`} /
-                {`${getMinutes(durationTime)}:${getSecond(durationTime)}`}
+                {`${getMinutes(currentTime)}:${getSecond(currentTime)} `}/
+                {` ${getMinutes(durationTime)}:${getSecond(durationTime)}`}
               </span>
             </div>
           </div>
