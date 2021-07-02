@@ -5,13 +5,12 @@ import Main from './components/Main/Main';
 import ContextProvider from './contexts/StateContext';
 
 //styles
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './styles/index.css';
+import './styles/custom.css';
 
 function App() {
   return (
     <ContextProvider>
-      <div className='bg-youtube vh-100 '>
+      <div className='vh-100'>
         <Header />
         <Main />
       </div>

@@ -27,7 +27,7 @@ const VideoDurations = () => {
       ...state,
       durationTime: durationTime,
       durationRealTime: durationTime / state.speed,
-      savedTime: durationTime - (durationTime / state.speed),
+      savedTime: durationTime - durationTime / state.speed,
       currentRealTime: calcCurrentTime(
         state.rangeValue,
         durationTime,
@@ -42,26 +42,26 @@ const VideoDurations = () => {
       <div className='h3 mt-2 text-center'>Video Durations</div>
       <div className='container row gap-3'>
         <button
-          className='btn btn-dark btn-youtube  col'
+          className='col btn btn-dark bg-youtube'
           onClick={() => videoDurationClick(10 * minutes)}
         >
           10
         </button>
         <button
-          className='btn btn-dark btn-youtube col'
+          className='col btn btn-dark bg-youtube'
           onClick={() => videoDurationClick(20 * minutes)}
         >
           20
         </button>
         <button
-          className='btn btn-dark btn-youtube col'
+          className='col btn btn-dark bg-youtube'
           onClick={() => videoDurationClick(30 * minutes)}
         >
           30
         </button>
         <input
           type='number'
-          className='col form-control  btn-dark btn-youtube border border-primary'
+          className='col form-control  btn-dark border border-primary'
           id='durationInput'
           min='0'
           onChange={handleDurationInput}
