@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "scss": "node-sass --watch src/styles/custom.scss -o src/styles/",
+    "scss": "node-sass src/styles/custom.scss -o src/styles/",
     "build": "npm run scss && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
